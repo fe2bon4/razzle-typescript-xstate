@@ -38,7 +38,7 @@ async function forEachProtoName(proto_name) {
     console.log(`info`, `Generating Classes for proto: ${proto_path}`);
     await spawn(`mkdir -p ${out_path};`);
     await spawn(
-      `protoc --plugin="protoc-gen-ts=${plugin_path}" --js_out="import_style=commonjs,binary:${out_path}" --ts_out="${OUT_DIR}" --proto_path="${proto_path}" ${proto_name};`
+      `./bin/protoc --plugin="protoc-gen-ts=${plugin_path}" --js_out="import_style=commonjs,binary:${out_path}" --ts_out="${OUT_DIR}" --proto_path="${proto_path}" ${proto_name};`
     );
     console.log(
       `info`,
