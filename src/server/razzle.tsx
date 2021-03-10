@@ -5,8 +5,6 @@ import { StaticRouter } from 'react-router-dom';
 import App from '../browser/App';
 
 export default ( server: Express ) => {
-
-
   const {
     RAZZLE_PUBLIC_DIR,
   } = process.env;
@@ -17,8 +15,8 @@ export default ( server: Express ) => {
   const syncLoadAssets = () => {
     assets = require(process.env.RAZZLE_ASSETS_MANIFEST!);
   };
-  syncLoadAssets();
 
+  syncLoadAssets();
 
   const serveIndex = (req: Request, res: Response) => {
     const context = {};
@@ -27,30 +25,32 @@ export default ( server: Express ) => {
         <App />
       </StaticRouter>
     );
-    res.send(
-      `<!doctype html>
-      <html lang="">
+
+    const base_html = `
+    <!doctype html>
+    <html lang="">
       <head>
-          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-          <meta charSet='utf-8' />
-          <title>Razzle TypeScript</title>
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-          ${
-            assets.client.css
-              ? `<link rel="stylesheet" href="${assets.client.css}">`
-              : ''
-          }
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta charSet='utf-8' />
+            <title>Razzle TypeScript</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
             ${
-              process.env.NODE_ENV === 'production'
-                ? `<script src="${assets.client.js}" defer></script>`
-                : `<script src="${assets.client.js}" defer crossorigin></script>`
+              assets.client.css
+                ? `<link rel="stylesheet" href="${assets.client.css}">`
+                : ""
             }
-      </head>
-      <body>
-          <div id="root">${markup}</div>
-      </body>
-  </html>`
-    );
+              ${
+                process.env.NODE_ENV === "production"
+                  ? `<script src="${assets.client.js}" defer></script>`
+                  : `<script src="${assets.client.js}" defer crossorigin></script>`
+              }
+        </head>
+        <body>
+            <div id="root">${markup}</div>
+        </body>
+    </html>`;
+
+    res.send(base_html);
   };
 
   server.get('/*', serveIndex);
