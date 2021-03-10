@@ -1,6 +1,9 @@
-import { Express, Request, Response, NextFunction } from 'express'
+import { Express, Request, Response, NextFunction, RequestHandler } from 'express'
 import { createProxyMiddleware } from 'http-proxy-middleware';
-import logger from './logger'
+import { logger } from "./util";
+
+type MiddelwarePackage = [ string, RequestHandler ]
+type MiddelwarePackageArray = MiddelwarePackage[]
 
 const log_middleware = (
   req: Request,
@@ -14,19 +17,24 @@ const log_middleware = (
   next();
 };
 
+const socketio_middleware = createProxyMiddleware({
+  target: "http://localhost:3030",
+  ws: true,
+});
+
+
+const middlewares: MiddelwarePackageArray = [
+  ["*", log_middleware],
+  ["/socket.io", socketio_middleware],
+];
 
 // Define Middleware Here
 export default ( server: Express )  => {
-  server.use('*', log_middleware);
 
 
-  server.use(
-    '/socket.io',
-    createProxyMiddleware({
-      target: 'http://localhost:3030',
-      ws: true,
-    })
-  );
-
-
+  const forEachMiddleware = ([route, middleware]: MiddelwarePackage): void  => {
+    server.use(route, middleware);;
+  }
+    
+  middlewares.forEach(forEachMiddleware);;
 }

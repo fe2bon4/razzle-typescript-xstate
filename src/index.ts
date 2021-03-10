@@ -1,5 +1,5 @@
 import express from 'express';
-import logger from './server/logger'
+import logger from "./server/util/logger";
 
 const { PORT = '3000' } = process.env;
 
