@@ -2,10 +2,8 @@ import React from "react";
 import logo from "./react.svg";
 import "./Workbench.css";
 
-import PageHeader from "../../components/control/PageHeader";
-import Button from "../../components/control/Button";
-
-
+import { PageHeader } from "../../components/control";
+import Buttons from "./sections/Buttons";
 class Workbench extends React.Component<{}, {}> {
   public render() {
     return (
@@ -14,23 +12,8 @@ class Workbench extends React.Component<{}, {}> {
           <img src={logo} className="header-logo" alt="logo" />
           <h2>Workbench</h2>
         </PageHeader>
-        <ul className="Workbench-resources">
-          <li>
-            <Button
-              debounce_ms={0}
-              onClick={() => {}}
-              variant={"contained"}
-              color={"default"}
-            >
-              Test 2
-            </Button>
-          </li>
-          <li>
-            <Button debounce_ms={0} onClick={() => {}} variant={"contained"}>
-              Test 2
-            </Button>
-          </li>
-        </ul>
+
+        <Buttons />
       </div>
     );
   }
