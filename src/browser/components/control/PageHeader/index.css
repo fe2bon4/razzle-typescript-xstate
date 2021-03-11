@@ -1,0 +1,25 @@
+
+.header-logo {
+  animation: Home-logo-spin infinite 20s linear;
+  height: 5vh;
+}
+
+
+.header {
+  display: flex;
+  justify-content: left;
+  align-self: center;
+  background-color: #222;
+  padding: 20px;
+  color: white;
+  height: 5vh;
+}
+
+.header-item{
+  flex: 0 0;
+  display: flex;
+  justify-content: left;
+  align-self: center;
+  margin: 0rem 0.2rem 0rem 0.2rem;
+  padding: 0;
+}

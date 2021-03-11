@@ -1,33 +1,33 @@
-.Home {
+.Workbench {
   text-align: center;
 }
 
-.Home-logo {
-  animation: Home-logo-spin infinite 20s linear;
-  height: 5vh;
+.Workbench-logo {
+  animation: Workbench-logo-spin infinite 20s linear;
+  height: 80px;
 }
 
-.Home-header {
+.Workbench-header {
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
 }
 
-.Home-intro {
+.Workbench-intro {
   font-size: large;
 }
 
-.Home-resources {
+.Workbench-resources {
   list-style: none;
 }
 
-.Home-resources > li {
+.Workbench-resources > li {
   display: inline-block;
   padding: 1rem;
 }
 
-@keyframes Home-logo-spin {
+@keyframes Workbench-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }

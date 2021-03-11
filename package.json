@@ -12,7 +12,10 @@
     "postinstall": "chmod +x ./bin/protoc && node ./scripts/generate-proto.js"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "@xstate/react": "^1.2.2",
+    "add": "^2.0.6",
     "express": "^4.17.1",
     "http-proxy-middleware": "^1.0.6",
     "pm2": "^4.5.4",
@@ -22,7 +25,8 @@
     "socket.io-client": "2.4.0",
     "ts-protoc-gen": "^0.14.0",
     "winston": "^3.3.3",
-    "xstate": "^4.16.2"
+    "xstate": "^4.16.2",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.5.0",

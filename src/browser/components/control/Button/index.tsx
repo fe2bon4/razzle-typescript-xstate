@@ -1,11 +1,31 @@
 import React, { useState, useEffect, SyntheticEvent } from "react";
 
-type PropType = {};
+import { Button as MaterialButton, ButtonProps } from "@material-ui/core";
+
+interface PropType extends ButtonProps  {
+  children: any;
+  onClick: any;
+  debounce_ms?: number
+};
 
 function Button(props: PropType) {
-  const [state, setState] = useState({});
+  const { children, debounce_ms = 0, onClick, ...rest } = props;
 
-  return <div></div>;
+  let debouncer: any;
+
+  const onButtonClick = (e: SyntheticEvent) => {
+    e.preventDefault();
+
+    if (debouncer) clearTimeout(debouncer);
+
+    debouncer = setTimeout(onClick, debounce_ms);
+  };
+
+  return (
+    <MaterialButton onClick={onButtonClick} {...rest}>
+      {...children}
+    </MaterialButton>
+  );
 }
 
 export default Button;
