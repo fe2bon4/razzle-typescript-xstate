@@ -9,7 +9,13 @@ interface PropType extends ButtonProps  {
 };
 
 function Button(props: PropType) {
-  const { children, debounce_ms = 0, onClick, ...rest } = props;
+  const {
+    children,
+    color = "primary",
+    debounce_ms = 0,
+    onClick,
+    ...rest
+  } = props;
 
   let debouncer: any;
 
@@ -22,8 +28,8 @@ function Button(props: PropType) {
   };
 
   return (
-    <MaterialButton onClick={onButtonClick} {...rest}>
-      {...children}
+    <MaterialButton onClick={onButtonClick} color={color} {...rest}>
+      {children}
     </MaterialButton>
   );
 }
