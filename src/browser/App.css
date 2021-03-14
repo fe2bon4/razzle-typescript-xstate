@@ -3,3 +3,10 @@ body {
   padding: 0;
   font-family: 'monospace';
 }
+
+
+.btn-row {
+  display: flex;
+  justify-content: space-evenly;
+  align-self: center;
+}

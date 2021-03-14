@@ -19,16 +19,28 @@ function Button(props: PropType) {
 
   let debouncer: any;
 
+  const [debouncing, setDebouncing] = useState<boolean>(false);
+
   const onButtonClick = (e: SyntheticEvent) => {
     e.preventDefault();
+    setDebouncing(true);
+    console.log("Clicked", debouncing);
 
     if (debouncer) clearTimeout(debouncer);
 
-    debouncer = setTimeout(onClick, debounce_ms);
+    debouncer = setTimeout(() => {
+      onClick();
+      setDebouncing(false);
+    }, debounce_ms);
   };
 
   return (
-    <MaterialButton onClick={onButtonClick} color={color} {...rest}>
+    <MaterialButton
+      onClick={onButtonClick}
+      color={color}
+      {...rest}
+      disabled={debouncing}
+    >
       {children}
     </MaterialButton>
   );

@@ -1,51 +1,61 @@
 import React, { useState } from "react";
+import { ButtonGroup } from '@material-ui/core' 
+import { Save, Delete } from "@material-ui/icons";
+
+import { SaveDiscard } from "../../../../components/component";
 import { Button } from "../../../../components/control";
 type PropType = {};
 
 function Buttons(props: PropType) {
   return (
-    <ul className="Workbench-resources">
-      <li>
-        <Button
-          debounce_ms={0}
-          onClick={() => {}}
-          variant={"contained"}
-          color={"default"}
-        >
-          Default
-        </Button>
-      </li>
-      <li>
-        <Button
-          debounce_ms={0}
-          onClick={() => {}}
-          variant={"contained"}
-          color={"primary"}
-        >
-          Primary
-        </Button>
-      </li>
-      <li>
-        <Button
-          debounce_ms={0}
-          onClick={() => {}}
-          variant={"contained"}
-          color={"secondary"}
-        >
-          Secondary
-        </Button>
-      </li>
-      <li>
-        <Button
-          debounce_ms={0}
-          onClick={() => {}}
-          variant={"contained"}
-          disabled
-        >
-          Disabled
-        </Button>
-      </li>
-    </ul>
+    <div className="Workbench-resources">
+      <div className="btn-row">
+      
+        <ButtonGroup 
+          // ts-ignore
+          variant={"contained"} 
+          color={'primary'}>
+          <Button
+            debounce_ms={0}
+            onClick={() => {}}
+          >
+            Default
+          </Button>
+          <Button
+            debounce_ms={0}
+            onClick={() => {}}
+            color={'secondary'}
+          >
+            Secondary
+          </Button>
+          <Button
+            debounce_ms={0}
+            onClick={() => {}}
+          >
+            Primary
+          </Button>
+
+          
+          <Button
+            debounce_ms={0}
+            onClick={() => {}}
+            variant={"contained"}
+            disabled
+          >
+            Disabled
+          </Button>
+        </ButtonGroup>
+
+      </div>
+  
+      <div className='btn-row'>
+        <SaveDiscard
+          onDiscard={()=>{}}
+          onSave={()=>{}}
+          disabled={false}
+        />
+      </div>
+    </div>
   );
 }
 

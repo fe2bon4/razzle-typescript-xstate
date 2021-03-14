@@ -3,6 +3,7 @@ import logo from "./react.svg";
 import "./Workbench.css";
 
 import { PageHeader } from "../../components/control";
+import { SaveDiscard } from "../../components/component";
 import Buttons from "./sections/Buttons";
 class Workbench extends React.Component<{}, {}> {
   public render() {
