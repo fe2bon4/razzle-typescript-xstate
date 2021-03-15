@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import './Home.css';
 
 
-import PageHeader from "../../components/control/PageHeader";
+import PageHeader from "../../components/control/Header";
 
 class Home extends React.Component<{}, {}> {
   public render() {

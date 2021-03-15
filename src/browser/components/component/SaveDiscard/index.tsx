@@ -1,5 +1,5 @@
 import React, { useState, useEffect, SyntheticEvent } from "react";
-import { ButtonGroup } from "@material-ui/core";
+import { ButtonGroup, Grid } from "@material-ui/core";
 import { Save, Delete } from "@material-ui/icons";
 import { Button } from "../../control";
 type PropType = {
@@ -10,32 +10,42 @@ type PropType = {
 };
 
 function SaveDiscard(props: PropType) {
+  const { onSave, onDiscard, disabled=false, ...rest } = props;
   const onDiscardButtonClick = () => {
-    props.onSave();
+    onDiscard();
   };
 
   const onSaveButtonClick = () => {
-    props.onSave();
+    onSave();
   };
 
   return (
-    <ButtonGroup variant={"contained"} color={"primary"} {...props}>
+    <Grid container xs={12} justify={"flex-end"} alignItems={"center"} >
       <Button
-        startIcon={<Delete />}
-        debounce_ms={200}
+        variant={"contained"} 
         color={"secondary"}
+        startIcon={<Delete />}
+        debounce_ms={0}
         onClick={onDiscardButtonClick}
-      >
-        Discard
-      </Button>
+        disabled={disabled} 
+        style={{
+          margin: '0.20rem'
+        }}
+      >Discard</Button>
+      
       <Button
+        variant={"contained"}
+        color={"primary"}
         startIcon={<Save />}
-        debounce_ms={200}
+        debounce_ms={0}
         onClick={onSaveButtonClick}
-      >
-        Save
-      </Button>
-    </ButtonGroup>
+        disabled={disabled} 
+        style={{
+          margin: '0.20rem'
+        }}
+      >Save</Button>
+    </Grid>
+   
   );
 }
 

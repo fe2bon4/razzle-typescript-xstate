@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 
 function PageHeader(props: any) {
-  const { className = "header", children = {} } = props;
+  const { className = "header", style, children = {} } = props;
 
   const applyHeaderStyles = (child: React.ReactElement) => {
     const props = {
@@ -15,7 +15,7 @@ function PageHeader(props: any) {
   };
 
   return (
-    <div className={className}>
+    <div className={className} style={style}>
       {React.Children.map(children, applyHeaderStyles)}
     </div>
   );

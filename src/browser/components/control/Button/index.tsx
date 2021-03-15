@@ -24,8 +24,6 @@ function Button(props: PropType) {
   const onButtonClick = (e: SyntheticEvent) => {
     e.preventDefault();
     setDebouncing(true);
-    console.log("Clicked", debouncing);
-
     if (debouncer) clearTimeout(debouncer);
 
     debouncer = setTimeout(() => {

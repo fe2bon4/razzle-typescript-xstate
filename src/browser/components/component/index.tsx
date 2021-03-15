@@ -1,3 +1,3 @@
 import SaveDiscard from "./SaveDiscard";
-
-export { SaveDiscard };
+import Form from "./Form";
+export { SaveDiscard, Form };
