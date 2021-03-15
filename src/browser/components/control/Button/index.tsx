@@ -39,7 +39,7 @@ function Button(props: PropType) {
       onClick={onButtonClick}
       color={color}
       {...rest}
-      disabled={debouncing}
+      disabled={debouncing || props.disabled}
     >
       {children}
     </MaterialButton>
