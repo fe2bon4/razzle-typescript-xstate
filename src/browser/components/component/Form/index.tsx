@@ -7,6 +7,8 @@ import {
   Grid,
 } from "@material-ui/core"; 
 
+import "./index.css";
+
 interface GridProps {
   xs: number
   sm: number
@@ -82,31 +84,37 @@ function Form(props: PropType) {
   }
 
   return (
-    <Paper elevation={3} style={{ width: '50vw', margin: '0.2rem'}} >
-      <Grid container justify={"flex-start"}>
-        <PageHeader  > 
-          <h2 style={header_style}>{title}</h2>
-         </PageHeader>
-      </Grid>
+    <Paper elevation={3} className={"form"}>
+      <PageHeader className={'form-header'}>
+        <h2 style={header_style}>{title}</h2>
+      </PageHeader>
 
-      <Grid container>
-        {fields.map(({ id, grid_props, type,...field_props }, key) => {
-          const default_grid_props = { xs: 12 }
+      <Grid container color={'primary'}>
+        {fields.map(({ id, grid_props, type, ...field_props }, key) => {
+          const default_grid_props = { xs: 12 };
 
-          let InputLabelProps = {}
-          if ( type === 'date' || type === 'time' ) {
-            InputLabelProps = { shrink: true }
+          let InputLabelProps = {};
+          if (type === "date" || type === "time") {
+            InputLabelProps = { shrink: true };
           }
 
           return (
             //@ts-ignore
-            <Grid item container key={key} {...default_grid_props} {...grid_props} justify={'center'} alignItems={'center'}>
+            <Grid
+              item
+              container
+              key={key}
+              {...default_grid_props}
+              {...grid_props}
+              justify={"center"}
+              alignItems={"center"}
+            >
               <TextField
                 {...field_props}
                 type={type}
                 style={TextFieldStyle}
                 id={id}
-                value={state.field_values[id] || ''}
+                value={state.field_values[id] || ""}
                 variant={"outlined"}
                 onChange={onFieldChange}
                 InputLabelProps={InputLabelProps}
@@ -114,7 +122,11 @@ function Form(props: PropType) {
             </Grid>
           );
         })}
-        <SaveDiscard disabled={disabled} onSave={onFormSave} onDiscard={onFormDiscard}/>
+        <SaveDiscard
+          disabled={disabled}
+          onSave={onFormSave}
+          onDiscard={onFormDiscard}
+        />
       </Grid>
     </Paper>
   );

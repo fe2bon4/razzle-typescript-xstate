@@ -1,0 +1,15 @@
+.form {
+  width: '100%';
+  margin: 0.2rem;
+}
+.form-header {
+  padding: 1rem 0.1rem 1rem 0.1rem;
+  margin: 0rem 0rem 0.2rem 0rem;
+}
+
+.form-body {
+  padding: 0.5rem;
+}
+.form-footer {
+  padding: 0rem 0.1rem 0rem 0.1rem;
+}

@@ -15,7 +15,7 @@ function PageHeader(props: any) {
   };
 
   return (
-    <div className={className} style={style}>
+    <div className={`header ${className}`} style={style}>
       {React.Children.map(children, applyHeaderStyles)}
     </div>
   );
