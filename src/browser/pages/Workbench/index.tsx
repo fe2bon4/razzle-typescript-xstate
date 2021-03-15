@@ -45,19 +45,29 @@ function Workbench() {
       </PageHeader>
 
       {/* <Buttons /> */}
-      { showForm && <Form
-        fields={text_fields}
-        onDiscard={() => {
-          setShowForm(false)
-        }}
-        onSave={(data: any) => {
-          console.log(data);
-          setShowForm(false)
-        }}
-      /> }
+      {showForm && (
+        <Form
+          title={"Sample Form"}
+          fields={text_fields}
+          onDiscard={() => {
+            setShowForm(false);
+          }}
+          onSave={(data: any) => {
+            console.log(data);
+            setShowForm(false);
+          }}
+        />
+      )}
 
-      { !showForm && <Button color={'primary'} debounce_ms={0} onClick={() => setShowForm(true)}>Show Form</Button>}
-      
+      {!showForm && (
+        <Button
+          color={"primary"}
+          debounce_ms={0}
+          onClick={() => setShowForm(true)}
+        >
+          Show Form
+        </Button>
+      )}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 
 function PageHeader(props: any) {
-  const { className = "header", style, children = {} } = props;
+  const { className = "header", style, itemClassName, children = {} } = props;
 
   const applyHeaderStyles = (child: React.ReactElement) => {
     const props = {
@@ -10,7 +10,9 @@ function PageHeader(props: any) {
     };
 
     return (
-      <div className={"header-item"}>{React.cloneElement(child, props)}</div>
+      <div className={`header-item ${itemClassName}`}>
+        {React.cloneElement(child, props)}
+      </div>
     );
   };
 

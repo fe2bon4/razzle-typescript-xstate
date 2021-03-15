@@ -85,11 +85,11 @@ function Form(props: PropType) {
 
   return (
     <Paper elevation={3} className={"form"}>
-      <PageHeader className={'form-header'}>
-        <h2 style={header_style}>{title}</h2>
+      <PageHeader className={"form-header"} itemClassName={"form-header-item"}>
+        <h4 className="form-title">{title}</h4>
       </PageHeader>
 
-      <Grid container color={'primary'}>
+      <Grid container color={"primary"} className={'form-body'}>
         {fields.map(({ id, grid_props, type, ...field_props }, key) => {
           const default_grid_props = { xs: 12 };
 
@@ -122,12 +122,14 @@ function Form(props: PropType) {
             </Grid>
           );
         })}
-        <SaveDiscard
-          disabled={disabled}
-          onSave={onFormSave}
-          onDiscard={onFormDiscard}
-        />
+      
       </Grid>
+      <SaveDiscard
+        className={'form-footer'}
+        disabled={disabled}
+        onSave={onFormSave}
+        onDiscard={onFormDiscard}
+      />
     </Paper>
   );
 }

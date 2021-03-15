@@ -3,13 +3,24 @@
   margin: 0.2rem;
 }
 .form-header {
+  width: 100%;
   padding: 1rem 0.1rem 1rem 0.1rem;
   margin: 0rem 0rem 0.2rem 0rem;
+}
+
+.form-header-item {
+  flex: 1;
+}
+
+.form-title {
+  padding: 0rem 0.1rem 0rem 0.1rem;
+  margin: 0rem 0.1rem 0rem 0.1rem;
 }
 
 .form-body {
   padding: 0.5rem;
 }
+
 .form-footer {
-  padding: 0rem 0.1rem 0rem 0.1rem;
+  padding: 0.4rem 0.1rem 0.4rem 0.1rem;
 }

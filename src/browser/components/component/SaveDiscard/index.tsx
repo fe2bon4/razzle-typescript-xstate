@@ -1,5 +1,5 @@
-import React, { useState, useEffect, SyntheticEvent } from "react";
-import { ButtonGroup, Grid } from "@material-ui/core";
+import React from "react";
+import { Grid } from "@material-ui/core";
 import { Save, Delete } from "@material-ui/icons";
 import { Button } from "../../control";
 type PropType = {
@@ -10,7 +10,7 @@ type PropType = {
 };
 
 function SaveDiscard(props: PropType) {
-  const { onSave, onDiscard, disabled=false, ...rest } = props;
+  const { className, onSave, onDiscard, disabled = false, ...rest } = props;
   const onDiscardButtonClick = () => {
     onDiscard();
   };
@@ -20,32 +20,41 @@ function SaveDiscard(props: PropType) {
   };
 
   return (
-    <Grid container xs={12} justify={"flex-end"} alignItems={"center"} >
+    <Grid
+      container
+      xs={12}
+      justify={"flex-end"}
+      alignItems={"center"}
+      className={className}
+    >
       <Button
-        variant={"contained"} 
+        variant={"contained"}
         color={"secondary"}
         startIcon={<Delete />}
         debounce_ms={0}
         onClick={onDiscardButtonClick}
-        disabled={disabled} 
+        disabled={disabled}
         style={{
-          margin: '0.20rem'
+          margin: "0.20rem",
         }}
-      >Discard</Button>
-      
+      >
+        Discard
+      </Button>
+
       <Button
         variant={"contained"}
         color={"primary"}
         startIcon={<Save />}
         debounce_ms={0}
         onClick={onSaveButtonClick}
-        disabled={disabled} 
+        disabled={disabled}
         style={{
-          margin: '0.20rem'
+          margin: "0.20rem",
         }}
-      >Save</Button>
+      >
+        Save
+      </Button>
     </Grid>
-   
   );
 }
 
